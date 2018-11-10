@@ -1,3 +1,7 @@
+/*Class: CPSC 473
+  Author: Dayna Anderson
+  Assignment: 2
+*/
 test = (function() {
     var student_list = new Array();
 
@@ -7,7 +11,7 @@ test = (function() {
         this.grades= grdArr;
 	}
 
-
+    //accessor functions for Student items
 	Student.prototype.getName = function() {
 		return this.first_name + " " + this.last_name;
     }
@@ -17,6 +21,7 @@ test = (function() {
     Student.prototype.getGrades=function(){
         return this.grades;
     }
+    //function to return all the student items stored in the student_list array
     Student.prototype.getAll=function(){
         return student_list;
     }

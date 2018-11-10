@@ -1,5 +1,7 @@
-
-
+/*Class: CPSC 473
+  Author: Dayna Anderson
+  Assignment: 2
+*/
 
 test = (function(){
 
@@ -9,7 +11,7 @@ test = (function(){
         var ul_node=document.getElementById('indexNameList');
         this.root=ul_node;
         this.content=matches;
-
+		//passes info to handlebar script to display grades of selected student in table.
         this.createChildNodeHandlebars=function(){
 			var source = document.getElementById('studentListTemplate').innerHTML;
 			var template = Handlebars.compile(source);
