@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    
+    <meta charset="utf-8">
+    <title>Student Gradebook</title>
+    <script src='js/globalVars.js'></script>
+    <script src="js/Models/student_Model.js"></script>
+    <script src="js/Control/event_Controller.js"></script>
+    <script src="js/Views/studentgrade_View.js"></script>
+    <script src="js/Views/studentList_View.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    
+</head>
+
+<body>
+    <table id="studentSearch">
+        <tr>
+            <th id="lnSearchHeader" colspan="2">
+                <form id="lnSearchForm">
+                    Last Name:
+                    <input id="lnSearch" type="text" name="Last Name: ">
+                    <input id="submitSearchLn" type="submit" value="Search">
+                </form>
+            </th>
+        </tr>
+        <tr>
+
+            <td>
+                <label>Students Found:</label>
+                <ul id="indexNameList">
+                </ul>
+            </td>
+
+            <td>
+                <label>Grades for <span id="studentName">Student</span>: </label><br>
+                <table id="gradetable">
+                    <tr>
+                        <th>Course</th>
+                        <th>Grade</th>
+                    </tr>
+
+                </table>
+            </td>
+
+        </tr>
+    </table>
+    <script id="studentListTemplate" type="text/x-handlebars-template">
+    	{{#each student}}
+    	<li>{{first_name}} {{last_name}}</li>
+    	{{/each}}
+    </script>
+    <script id="studentGradesTemplate" type="text/x-handlebars-template">
+    	{{#each course}}
+    	<tr>
+        <td>{{course[0]}}</td> <td>{{course[1]}}</td>
+        </tr>
+    	{{/each}}
+    </script>
+</body>
+
+
+</html>
