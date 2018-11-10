@@ -1,1 +1,1 @@
-# CPSC473_Homework2
+# CPSC473_Assignment_2
