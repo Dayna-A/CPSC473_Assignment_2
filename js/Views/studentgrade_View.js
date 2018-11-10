@@ -8,7 +8,9 @@ test=(function(){
         //retrieve grade table element and set it as the root.
         var ul_node=document.getElementById('gradetable');
         this.root=ul_node;
-        this.content=matches;
+        this.content=grades;
+        console.log(this.content);
+        
         //passes info to handlebar script to list all students with the searched last name
         this.createChildNodeHandlebars=function(){
 			var source = document.getElementById('studentGradesTemplate').innerHTML;
@@ -34,4 +36,4 @@ test=(function(){
 
 	return window.testApp;
 
-});
+})();

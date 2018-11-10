@@ -24,11 +24,11 @@
     <table id="studentSearch">
         <tr>
             <th id="lnSearchHeader" colspan="2">
-                <form id="lnSearchForm">
+                <div id="lnSearchForm">
                     Last Name:
                     <input id="lnSearch" type="text" name="Last Name: ">
                     <input id="submitSearchLn" type="submit" value="Search">
-                </form>
+                </div>
             </th>
         </tr>
         <tr>
@@ -41,6 +41,7 @@
 
             <td>
                 <label>Grades for <span id="studentName">Student</span>: </label><br>
+                <br>
                 <table id="gradetable">
                     <tr>
                         <th>Course</th>
@@ -54,13 +55,13 @@
     </table>
     <script id="studentListTemplate" type="text/x-handlebars-template">
     	{{#each student}}
-    	<li>{{first_name}} {{last_name}}</li>
+    	<li>{{first_name}} {{last_name}}</li><br>
     	{{/each}}
     </script>
     <script id="studentGradesTemplate" type="text/x-handlebars-template">
     	{{#each course}}
     	<tr>
-        <td>{{course[0]}}</td> <td>{{course[1]}}</td>
+        <td>{{0}}</td> <td>{{1}}</td>
         </tr>
     	{{/each}}
     </script>

@@ -2,70 +2,75 @@
   Author: Dayna Anderson
   Assignment: 2
 */
-var makeStudent=(function(){
+var makeStudent = (function () {
 
-    function studentLookupControl(){
+    function studentLookupControl() {
         //find submit button for last name search and save it in a variable.
-        var searchform=document.getElementById("submitSearchLn");
+        var searchform = document.getElementById("submitSearchLn");
         console.log(searchform);
 
         //adds onClick event listener to the search button
-        searchform.addEventListener('click', function(event){
+        searchform.addEventListener('click', function (event) {
             console.log("I am inside onClickListener");
             var ln = document.getElementById('lnSearch').value;
             console.log(ln);
             console.log(test);
 
-            var st_ob= new test.model.Student();
-            var matches=st_ob.getMatches(ln);
+            var st_ob = new testApp.model.Student();
+            var matches = st_ob.getMatches(ln);
             console.log(matches);
 
             //create the view which is broken whyyy
-            var list_view = new test.View.ListView(matches);
+            var list_view = new testApp.ui.ListView(matches);
             console.log(list_view);
+            addClickAbility();
         });
 
         //turn the $ into a function for finding a selector in a document.
         //learned how to do this here : https://toddmotto.com/attaching-event-handlers-to-dynamically-created-javascript-elements/
-        var $=function (selector){
+        var $ = function (selector) {
             return document.querySelector(selector);
         }
 
-        //search through the student name list and get the dynamically generated li from it.
-        var studentli=$('#indexNameList').getElementsByTagName('li');
+        function addClickAbility() {
+            //search through the student name list and get the dynamically generated li from it.
+            var studentli = $('#indexNameList').getElementsByTagName('li');
 
-        //set an onclick listener for all of them that calls the grade lookup function
-        for(let s of studentli){
-            var student = s;
-            student.onclick=gradeLookup;
+            //set an onclick listener for all of them that calls the grade lookup function
+            for (let s of studentli) {
+                var student = s;
+                student.onclick = gradeLookup;
+            }
         }
+
+
         //function to find the grade information for the student that was clicked and display it in the grade table.
-        function gradeLookup(){
-            var s_name=this.innerHTML;
+        function gradeLookup() {
+            var s_name = this.innerHTML;
             console.log(s_name);
             //set label on Grade List to the student's name
-            var title=getElementById("studentName");
-            title.innerHTML=s_name;
+            var title = document.getElementById("studentName");
+            title.innerHTML = s_name;
 
             //retrieve the list of all students and find the student clicks on
-            var st_ob= new test.model.Student();
-            var allStudents=st_ob.getAll();
-            for(let s in allStudents){
-                if(s.getName()==s_name){
+            var st_ob = new testApp.model.Student();
+            var allStudents = st_ob.getAll();
+            for (let s of allStudents) {
+                if (s.getName() == s_name) {
                     //retrieve the students grades
-                    var thisGrades=s.getGrades();
+                    var thisGrades = s.getGrades();
                 }
             }
             //send grades to table view.
-            var grade_view = new test.View.gradeView(thisGrades);
+            var grade_view = new testApp.ui.GradeView(thisGrades);
 
         }
     }
 
-	window.addEventListener('load', function(event) {
+    window.addEventListener('load', function (event) {
         studentLookupControl();
-	});
+    });
 
 
-return makeStudent;
+    return makeStudent;
 })()
