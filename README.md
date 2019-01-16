@@ -8,5 +8,5 @@ Unfortunately the active page was updated half-way through the assignment and th
 # Created by
 [Dayna Anderson](https://github.com/Dayna-A), 
 
-# Installing
-The index page 
+# Pre-requisites
+This project can be demo-ed in the browser without any additional downloads
